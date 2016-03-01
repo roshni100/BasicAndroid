@@ -1,0 +1,4 @@
+@author Roshni
+
+This is  my first app in which we could type messagev in one 
+activity(1 page) and it will get display to other activity (Another page)... 
