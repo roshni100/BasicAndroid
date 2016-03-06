@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Spinner1</string>
+    <string name="action_settings">Settings</string>
+    <string name="find_food">Find Food</string>
+    <string name="food_items"></string>
+    <string-array name="food_types_list">
+        <item>Pasta</item>
+        <item>Samosa</item>
+        <item>Sandwitch</item>
+        <item>Lassi</item>
+    </string-array>
+</resources>
