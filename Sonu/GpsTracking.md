@@ -1,0 +1,6 @@
+Kindly check manifest.xml file what i have aded their as     <uaes-permisiion>  ...
+
+Then check  GpsTracking main activity java file. I have given reqired comments their to get code understable little more easier...
+
+If have any doubt then refer Google.... ;)  
+

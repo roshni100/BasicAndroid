@@ -22,16 +22,27 @@ public class GpsTrackingMainActivity extends AppCompatActivity implements Locati
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gps_tracking_main);
-        locationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,2000,1,this);
+		
+		/*creating object of LocationManager and then providing useful data like 2000 millisecond time 
+		to get updated after this time as second parameter and getting location update on change of loaction of distance 1 meter as 3rd
+		parameter in requestLocationUpdates method*/
+		
+        locationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);			
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,2000,1,this);   
     }
 
-    public void onLocationChanged(Location location)
+    /*  onLocationChanged will be called on change in location by some distance as per specification provided throgh method
+	requestLocationUpdates above  */
+	
+	public void onLocationChanged(Location location)										
     {
         String msg="Latitude = "+location.getLatitude()+"Longitude = "+location.getLongitude();
         Toast.makeText(getBaseContext(),msg,Toast.LENGTH_LONG).show();
     }
 
+	/*  onProviderDisabled will be called when gps setting is turned off in ur mobile i am leaving this blank for now,
+	jst for testing purpose kindly turn on your gps location  */
+	
     public void onProviderDisabled(String provider)
     {
         //
