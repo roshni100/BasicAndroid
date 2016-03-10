@@ -2,10 +2,14 @@ package com.cehsonu.gpstracking;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.AudioManager;
+import android.media.audiofx.BassBoost;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +21,7 @@ import android.widget.Toast;
 
 public class GpsTrackingMainActivity extends AppCompatActivity implements LocationListener {
 
+    AudioManager audio;
     private LocationManager locationManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +41,17 @@ public class GpsTrackingMainActivity extends AppCompatActivity implements Locati
 	
 	public void onLocationChanged(Location location)										
     {
-        String msg="Latitude = "+location.getLatitude()+"Longitude = "+location.getLongitude();
+        double latitude=location.getLatitude();
+        double longitude=location.getLongitude();
+        String msg="Latitude = "+latitude+"Longitude = "+longitude;
         Toast.makeText(getBaseContext(),msg,Toast.LENGTH_LONG).show();
+        if (longitude<=88.42360000000000 && longitude>=88.42350000000000)
+        {
+            audio=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
+            audio.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+            Toast.makeText(getBaseContext(),"Ringer Volume set to silent",Toast.LENGTH_LONG).show();
+        }
+
     }
 
 	/*  onProviderDisabled will be called when gps setting is turned off in ur mobile i am leaving this blank for now,
@@ -45,7 +59,9 @@ public class GpsTrackingMainActivity extends AppCompatActivity implements Locati
 	
     public void onProviderDisabled(String provider)
     {
-        //
+        Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+        startActivity(intent);
+        Toast.makeText(getBaseContext(),"PLZ turn on your GPS locaton setting",Toast.LENGTH_LONG).show();
     }
     public void onStatusChanged(String provider,int status,Bundle extras)
     {
