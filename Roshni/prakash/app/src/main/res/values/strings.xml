@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">prakash</string>
+    <string name="action_settings">Settings</string>
+
+
+        <string name="twitch">Twitch logo</string>
+
+        <string-array name="options">
+            <item>Reminder</item>
+            <item>Route Map</item>
+            <item>Volume Controller</item>
+        </string-array>
+    <string-array name="Reminder">
+        <item>Meeting</item>
+        <item>Birthday</item>
+        <item>Anniversary</item>
+    </string-array>
+</resources>
