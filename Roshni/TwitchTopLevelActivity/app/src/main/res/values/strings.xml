@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+<string-array name="options">
+    <item>Reminder</item>
+    <item>Route Map</item>
+    <item>Volume Controller</item>
+</string-array>
+</resources>
