@@ -1,10 +1,8 @@
-package roshni.com.databasetwitch;
+package roshni.com.dbtrial;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import java.util.StringTokenizer;
 
 /**
  * Created by Roshni on 4/9/2016.
